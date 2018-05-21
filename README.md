@@ -10,13 +10,13 @@ STATIC IP: 18.196.119.141
 SSH PORT: 2200
 
 ### Update and Upgrade packages
-`sudo apt-get update  
+`sudo apt-get update    
 sudo apt-get upgrade`
 
 ### Create new user `grader` and give `sudo` rights
-`sudo adduser grader #password is udacity
-sudo usermod -aG sudo grader`
-Setup SSH for "grader"  
+`sudo adduser grader #password is udacity  
+sudo usermod -aG sudo grader`  
+Setup SSH for "grader"   
 (*source: [Digital  Ocean](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server)*)
 ```cd .ssh
 ssh-keygen -f ~/.ssh/udacity_key.rsa
@@ -59,8 +59,16 @@ mkdir CatalogApp; cd CatalogApp
 sudo git clone https://github.com/perkygva/CatalogApp.git CatalogApp
 sudo pip install -r requirements.txt
 ```
-5. Configure Apache
-Create CatalogApp/conf `sudo nano /etc/apache2/sites-available/CatalogApp.conf`
+5. Configure Apache and virtual VirtualHost
+Setup and run virtual environment
+```cd /var/www/CatalogApp/CatalogApp  
+sudo pip install virtualenv  
+sudo virtualenv venv  
+source venv/bin/activate  
+sudo a2ensite CatalogApp  
+sudo service apache2 restart
+```
+6. Create CatalogApp/conf `sudo nano /etc/apache2/sites-available/CatalogApp.conf`
 ```
 <VirtualHost *:80>
     ServerName 18.196.119.141
@@ -81,7 +89,7 @@ Create CatalogApp/conf `sudo nano /etc/apache2/sites-available/CatalogApp.conf`
     CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
-6. Create `catalogapp.wsgi`
+7. Create `catalogapp.wsgi`
 ```
 import sys
 import logging
@@ -91,9 +99,7 @@ sys.path.insert(0, "/var/www/CatalogApp/")
 from CatalogApp import app as application
 application.secret_key = 'JTIX4yDFMM0YDsdSO9iZ6_kp'
 ```
-7. Overwrite (hardcode) the CLIENT_ID and CLIENT_SECRET in the `__init__.py` file due to json error.
+8. Overwrite (hardcode) the CLIENT_ID and CLIENT_SECRET in the `__init__.py` file due to json error.
 
 ### Run application
-Restart Apache:
-`sudo service apache2 restart`
 Open a browser and put in your public ip-address as url, e.g. 18.196.119.141 - if everything works, the application should come up! (**Tested and functional on my end!**)

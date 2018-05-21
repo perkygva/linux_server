@@ -1,9 +1,16 @@
 ## README
 
-### [Project instructions](Project_Details.md)
+### [Project instructions](Project_Details.md)  
+### [CatalogApp instructions](README_catalogapp.md)
 
 ## Detailed Setup
-**Create your server | ubuntu instance - Amazon Lightsail or alternative**
+Software Summary
+- **Amazon Lightsail Ubuntu**
+- Python 3.6
+- Git and Git Bash
+- Postgresql
+- Apache2
+- Flask
 
 ### Server Details
 STATIC IP: 18.196.119.141  
@@ -103,3 +110,9 @@ application.secret_key = 'JTIX4yDFMM0YDsdSO9iZ6_kp'
 
 ### Run application
 Open a browser and put in your public ip-address as url, e.g. 18.196.119.141 - if everything works, the application should come up! (**Tested and functional on my end!**)
+
+### List of References
+- Digital Ocean tutorials (*SSH Configuration; Deploying Flask*)
+- StackOverflow
+- StackExchange
+- Udacity Forums

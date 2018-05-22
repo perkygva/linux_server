@@ -17,21 +17,21 @@ STATIC IP: 18.196.119.141
 SSH PORT: 2200
 
 ### Update and Upgrade packages
-`sudo apt-get update    
+`sudo apt-get update      
 sudo apt-get upgrade`
 
 ### Create new user `grader` and give `sudo` rights
-`sudo adduser grader #password is udacity  
-sudo usermod -aG sudo grader`  
+`sudo adduser grader`    #password is udacity    
+`sudo usermod -aG sudo grader`  
 Setup SSH for "grader"   
 (*source: [Digital  Ocean](https://www.digitalocean.com/community/tutorials/how-to-configure-ssh-key-based-authentication-on-a-linux-server)*)
 ```cd .ssh
 ssh-keygen -f ~/.ssh/udacity_key.rsa
  ```
 
-### Change the SSH port from 22 to 2200 and configure SSH access
+### Change the SSH port from 22 to 2200 and configure SSH access to now allow root login
 Configure settings on lightsail page (Manage > Network to allow for port 2200)  
-`sudo nano /etc/ssh/sshd_config` to change port to 2200
+`sudo nano /etc/ssh/sshd_config` to change port to 2200  
 Change `PermitRootLogin` to  no 
 
 ### Login as `grader`

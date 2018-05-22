@@ -19,7 +19,7 @@ SSH PORT: 2200
 ### Update and Upgrade packages
 `sudo apt-get update`        
 `sudo apt-get upgrade`  
-To install remaining packages `sudo apt-get dist-upgrade'
+To install remaining packages **`sudo apt-get dist-upgrade`**
 
 ### Create new user `grader` and give `sudo` rights
 `sudo adduser grader`    #password is udacity    

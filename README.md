@@ -32,6 +32,7 @@ ssh-keygen -f ~/.ssh/udacity_key.rsa
 ### Change the SSH port from 22 to 2200 and configure SSH access
 Configure settings on lightsail page (Manage > Network to allow for port 2200)  
 `sudo nano /etc/ssh/sshd_config` to change port to 2200
+Change `PermitRootLogin` to  no 
 
 ### Login as `grader`
 `ssh -i ~/.ssh/<udacity_key.rsa> grader@18.196.119.141 -p 2200`
@@ -66,6 +67,7 @@ mkdir CatalogApp; cd CatalogApp
 sudo git clone https://github.com/perkygva/CatalogApp.git CatalogApp
 sudo pip install -r requirements.txt
 ```
+
 5. Configure Apache and virtual VirtualHost
 Setup and run virtual environment
 ```cd /var/www/CatalogApp/CatalogApp  
@@ -75,6 +77,7 @@ source venv/bin/activate
 sudo a2ensite CatalogApp  
 sudo service apache2 restart
 ```
+
 6. Create CatalogApp/conf `sudo nano /etc/apache2/sites-available/CatalogApp.conf`
 ```
 <VirtualHost *:80>

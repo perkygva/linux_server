@@ -19,6 +19,7 @@ SSH PORT: 2200
 ### Update and Upgrade packages
 `sudo apt-get update      
 sudo apt-get upgrade`
+**There are 4 blacklisted packages for upgrade under unattended upgrades**
 
 ### Create new user `grader` and give `sudo` rights
 `sudo adduser grader`    #password is udacity    
